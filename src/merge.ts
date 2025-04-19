@@ -1,10 +1,14 @@
 export interface merge {
-  merge(collection_1: number[], collection_2: number[], collection_3: number[]): number[];
+  merge(
+    collection_1: number[],
+    collection_2: number[],
+    collection_3: number[],
+  ): number[];
 }
 
 // O(N) algorithm!
 // Merges arr1 (ascending) and arr2 (descending), then with arr3 (ascending)
-export const mergeArrays: merge["merge"] = (arr1, arr2, arr3) => {
+export const mergeArrays: merge['merge'] = (arr1, arr2, arr3) => {
   // A simpler approach would be to just reverse arr2, but that would cost another O(n) time to reverse
   const tmp = mergeAscendingDescending(arr1, arr2);
   return mergeTwoSorted(tmp, arr3);
@@ -39,7 +43,8 @@ const mergeAscendingDescending = (arr1: number[], arr2: number[]): number[] => {
 
 // Helper function to merge two ascending sorted arrays
 const mergeTwoSorted = (arr1: number[], arr2: number[]): number[] => {
-  let i = 0, j = 0;
+  let i = 0,
+    j = 0;
   const merged: number[] = [];
 
   while (i < arr1.length && j < arr2.length) {
